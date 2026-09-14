@@ -57,6 +57,11 @@ document.querySelector("#quote-form").addEventListener("submit",e=>{
   const valid=destinations.some(d=>d.toLowerCase()===input.value.trim().toLowerCase());
   if(!valid){error.textContent="Please select a valid destination.";input.focus();updateList();return}
   error.textContent="";
+  trackAnalyticsEvent("quote_submit",{
+    trip_type:document.querySelector('input[name="trip-type"]:checked')?.value||"single",
+    destination:input.value.trim(),
+    travellers:document.querySelector("#travellers")?.value||""
+  });
   const message=document.querySelector("#form-message");
   message.hidden=false;
   message.scrollIntoView({behavior:"smooth",block:"nearest"});
@@ -67,3 +72,83 @@ const nav=document.querySelector("#site-nav");
 menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
 nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}));
 document.querySelector("#year").textContent=new Date().getFullYear();
+
+
+const GA_MEASUREMENT_ID="G-2MBQKGSBMB";
+const GA_PREFERENCE_KEY="ctc_analytics_consent";
+const GA_DISABLE_KEY="ga-disable-"+GA_MEASUREMENT_ID;
+let analyticsLoaded=false;
+let quoteStarted=false;
+
+function getAnalyticsPreference(){
+  try{return localStorage.getItem(GA_PREFERENCE_KEY)}catch(e){return null}
+}
+function setAnalyticsPreference(value){
+  try{localStorage.setItem(GA_PREFERENCE_KEY,value)}catch(e){}
+}
+function clearAnalyticsCookies(){
+  document.cookie.split(";").forEach(cookie=>{
+    const name=cookie.split("=")[0].trim();
+    if(name==="_ga"||name.startsWith("_ga_")){
+      document.cookie=name+"=; Max-Age=0; path=/; SameSite=Lax";
+      document.cookie=name+"=; Max-Age=0; path=/; domain=cleartravelcover.co.uk; SameSite=Lax";
+      document.cookie=name+"=; Max-Age=0; path=/; domain=.cleartravelcover.co.uk; SameSite=Lax";
+    }
+  });
+}
+function loadAnalytics(){
+  window[GA_DISABLE_KEY]=false;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+  if(!analyticsLoaded){
+    const tag=document.createElement("script");
+    tag.async=true;
+    tag.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(tag);
+    window.gtag("js",new Date());
+    analyticsLoaded=true;
+  }
+  window.gtag("config",GA_MEASUREMENT_ID);
+}
+function disableAnalytics(){
+  window[GA_DISABLE_KEY]=true;
+  clearAnalyticsCookies();
+}
+function trackAnalyticsEvent(name,parameters={}){
+  if(getAnalyticsPreference()==="accepted"&&typeof window.gtag==="function"){
+    window.gtag("event",name,parameters);
+  }
+}
+
+const cookieBanner=document.querySelector("#cookie-banner");
+const cookieAccept=document.querySelector("#cookie-accept");
+const cookieReject=document.querySelector("#cookie-reject");
+const cookieSettings=document.querySelector("#cookie-settings");
+
+function showCookieBanner(){cookieBanner.hidden=false}
+function hideCookieBanner(){cookieBanner.hidden=true}
+
+cookieAccept.addEventListener("click",()=>{
+  setAnalyticsPreference("accepted");
+  loadAnalytics();
+  hideCookieBanner();
+});
+cookieReject.addEventListener("click",()=>{
+  setAnalyticsPreference("rejected");
+  disableAnalytics();
+  hideCookieBanner();
+});
+cookieSettings.addEventListener("click",showCookieBanner);
+
+const storedAnalyticsPreference=getAnalyticsPreference();
+if(storedAnalyticsPreference==="accepted")loadAnalytics();
+else if(storedAnalyticsPreference==="rejected")disableAnalytics();
+else showCookieBanner();
+
+document.querySelector("#quote-form").addEventListener("input",()=>{
+  if(quoteStarted)return;
+  quoteStarted=true;
+  trackAnalyticsEvent("quote_start");
+});
+document.querySelector(".text-link")?.addEventListener("click",()=>trackAnalyticsEvent("outbound_click",{link_name:"official_ghic_guidance"}));
+document.querySelector(".secondary-button")?.addEventListener("click",()=>trackAnalyticsEvent("partner_contact_click"));
