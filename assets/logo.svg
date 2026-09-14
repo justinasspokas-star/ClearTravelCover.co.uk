@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="72" viewBox="0 0 310 72" role="img" aria-labelledby="title">
+<title id="title">Clear Travel Cover</title>
+<g transform="translate(5 5)">
+  <circle cx="31" cy="31" r="27.5" fill="none" stroke="#102A43" stroke-width="3"/>
+  <path d="M31 8v5M31 49v5M8 31h5M49 31h5" stroke="#102A43" stroke-width="2" stroke-linecap="round"/>
+  <path d="M18 45 27.5 26.5 46 17 36.5 35.5Z" fill="#1AA7A1"/>
+  <path d="M27.5 26.5 36.5 35.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="31.7" cy="30.8" r="2.7" fill="#102A43"/>
+</g>
+<text x="75" y="29" fill="#102A43" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" letter-spacing=".5">CLEAR TRAVEL</text>
+<text x="75" y="54" fill="#1AA7A1" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="600" letter-spacing="3.4">COVER</text>
+</svg>
