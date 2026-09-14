@@ -98,20 +98,28 @@ function clearAnalyticsCookies(){
 }
 function loadAnalytics(){
   window[GA_DISABLE_KEY]=false;
-  window.dataLayer=window.dataLayer||[];
-  window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+  if(typeof window.gtag!=="function")return;
+  window.gtag("consent","update",{
+    analytics_storage:"granted",
+    ad_storage:"denied",
+    ad_user_data:"denied",
+    ad_personalization:"denied"
+  });
   if(!analyticsLoaded){
-    const tag=document.createElement("script");
-    tag.async=true;
-    tag.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(GA_MEASUREMENT_ID);
-    document.head.appendChild(tag);
-    window.gtag("js",new Date());
+    window.gtag("config",GA_MEASUREMENT_ID,{send_page_view:true});
     analyticsLoaded=true;
   }
-  window.gtag("config",GA_MEASUREMENT_ID);
 }
 function disableAnalytics(){
   window[GA_DISABLE_KEY]=true;
+  if(typeof window.gtag==="function"){
+    window.gtag("consent","update",{
+      analytics_storage:"denied",
+      ad_storage:"denied",
+      ad_user_data:"denied",
+      ad_personalization:"denied"
+    });
+  }
   clearAnalyticsCookies();
 }
 function trackAnalyticsEvent(name,parameters={}){
