@@ -39,6 +39,7 @@
   <meta name="twitter:image" content="https://cleartravelcover.co.uk/assets/social-share-v4.png?v=4">
   <meta name="theme-color" content="#102a43">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/hero-mediterranean-couple.webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"Clear Travel Cover","url":"https://cleartravelcover.co.uk/","description":"Travel insurance comparison information for UK travellers.","publisher":{"@type":"Person","name":"Justinas Spokas","url":"https://cleartravelcover.co.uk/about/"}}
@@ -67,19 +68,18 @@
 
   <main id="main">
     <section class="hero" id="compare">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Clear choices for UK travellers</p>
-          <h1>Travel insurance,<br><span>compared clearly.</span></h1>
-          <p class="hero-lead">Compare travel cover for Europe, the USA and worldwide destinations in one simple place. Understand the important differences before you choose.</p>
-          <div class="hero-points" aria-label="Our principles">
-            <span>Clear cover information</span>
-            <span>Built for UK travellers</span>
-            <span>No invented prices or ratings</span>
+      <div class="container hero-shell">
+        <div class="hero-stage">
+          <img class="hero-photo" src="assets/hero-mediterranean-couple.webp" width="1600" height="800" alt="Mature couple enjoying a Mediterranean holiday" fetchpriority="high">
+          <div class="hero-copy">
+            <p class="eyebrow">Travel insurance made clearer</p>
+            <h1>Compare travel insurance <span>with confidence.</span></h1>
+            <p class="hero-lead">Understand cover for Europe, the USA and worldwide trips before you choose.</p>
+            <a class="hero-action" href="#quote-form">Start your comparison <span aria-hidden="true">&#8595;</span></a>
           </div>
         </div>
 
-        <div class="quote-card">
+        <div class="quote-card hero-quote-card">
           <div class="quote-heading">
             <div>
               <p class="mini-label">Start your comparison</p>
@@ -162,6 +162,13 @@
             <strong>Comparison service launching soon.</strong>
             <span>No quotes are currently displayed. Our service is being prepared with authorised UK partners.</span>
           </div>
+        </div>
+
+        <div class="trust-strip" aria-label="Clear Travel Cover principles">
+          <span><b aria-hidden="true">&#10003;</b> Built for UK travellers</span>
+          <span><b aria-hidden="true">&#10003;</b> Clear comparison principles</span>
+          <span><b aria-hidden="true">&#10003;</b> No obligation to compare</span>
+          <span><b aria-hidden="true">&#10003;</b> Affiliate relationships disclosed</span>
         </div>
       </div>
       <div class="hero-curve" aria-hidden="true"></div>
