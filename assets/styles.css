@@ -231,3 +231,24 @@ img{display:block;max-width:100%}
   .related-section,.guide-links-section{padding:58px 0}
   .related-card,.guide-link-card{min-height:0}
 }
+
+
+/* Trust, legal and contact pages */
+.trust-layout{grid-template-columns:minmax(0,800px) minmax(260px,300px)}
+.hub-grid{margin:24px 0 44px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 46px}
+.contact-card{padding:22px;border:1px solid var(--line);border-radius:14px;background:#fbfdfd}
+.contact-card>span{color:var(--teal-dark);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.11em}
+.contact-card h2{margin:8px 0 10px;font-family:Georgia,"Times New Roman",serif;font-size:23px}
+.contact-card p{font-size:14px;line-height:1.55}
+.contact-card a{display:inline-block;overflow-wrap:anywhere;font-size:13px}
+.article-body code{padding:2px 6px;border-radius:5px;background:#eef4f6;color:var(--navy);font-size:.9em}
+.footer-main nav{justify-content:flex-end}
+@media(max-width:980px){
+  .trust-layout{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-main nav{justify-content:flex-start}
+}
+@media(max-width:720px){
+  .footer-main nav{justify-content:center}
+}
