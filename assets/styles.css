@@ -270,3 +270,25 @@ img{display:block;max-width:100%}
   .footer-brand{justify-self:center}
   .footer-main nav{justify-content:center}
 }
+
+/* Compact desktop homepage hero */
+@media(min-width:721px){
+  .hero{padding:22px 0 86px}
+  .hero-stage{height:410px;border-radius:24px}
+  .hero-copy{left:32px;width:min(440px,43%);padding:29px 31px;border-radius:19px}
+  .hero h1{font-size:clamp(40px,3.8vw,53px)}
+  .hero-lead{margin:16px 0 20px;font-size:15px}
+  .hero-quote-card{margin:-44px 28px 0;padding:21px 23px 23px}
+  .quote-heading h2{font-size:24px}
+  .launch-note{margin:14px 0 12px;padding:8px 11px}
+  .trip-toggle{margin-bottom:13px}
+  .input-wrap,.primary-button{height:48px}
+  .trust-strip{margin:14px 28px 0}
+  .trust-strip span{min-height:50px}
+}
+@media(min-width:721px) and (max-width:980px){
+  .hero-stage{height:400px}
+  .hero-copy{left:24px;width:52%;padding:27px}
+  .hero-quote-card{margin:-38px 18px 0}
+  .trust-strip{margin-inline:18px}
+}
