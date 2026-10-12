@@ -177,24 +177,25 @@
           <div><p class="eyebrow">Your travel insurance search</p><h2>Available provider options</h2><p id="results-summary"></p></div>
           <button type="button" class="edit-search-button" id="edit-search">Edit search</button>
         </div>
-        <div class="results-table-wrap">
-          <table class="results-table">
-            <thead><tr><th scope="col">Provider</th><th scope="col">Policy details</th><th scope="col">Total price (GBP)</th><th scope="col">Next step</th></tr></thead>
-            <tbody><tr>
-              <td data-label="Provider"><strong>Chapka</strong><small>External provider · Affiliate partner</small></td>
-              <td data-label="Policy details"><strong>Explore Chapka travel cover</strong><small>Check UK residency eligibility, chosen destination, dates, exclusions and policy conditions directly with Chapka.</small></td>
-              <td data-label="Total price (GBP)"><strong>Quote required</strong><small>£ total unavailable — no live pricing connection</small></td>
-              <td data-label="Next step"><a class="results-cta" href="https://www.chapkadirect.com/index.php?action=produit&amp;id=930&amp;app=ViajeroLATAM" target="_blank" rel="sponsored noopener noreferrer" data-track="click_affiliate_chapka">View policy <span aria-hidden="true">↗</span></a></td>
-            </tr>
-            <tr>
-              <td data-label="Provider"><strong>IATI Global</strong><small>External provider · Affiliate partner</small></td>
-              <td data-label="Policy details"><strong>Explore IATI travel insurance</strong><small>Check cover availability for UK residents, destination, travel dates, policy limits and exclusions directly with IATI.</small></td>
-              <td data-label="Total price (GBP)"><strong>Quote required</strong><small>£ total unavailable — no live pricing connection</small></td>
-              <td data-label="Next step"><a class="results-cta" href="https://www.iatiglobal.com/en/?r=84208681926165" target="_blank" rel="sponsored noopener noreferrer" data-track="click_affiliate_iati">View policy <span aria-hidden="true">↗</span></a></td>
-            </tr></tbody>
-          </table>
+        <div class="insurer-results">
+          <article class="insurer-card">
+            <div class="insurer-ribbon">SCHENGEN / INTERNATIONAL TRAVEL OPTION</div>
+            <div class="insurer-body">
+              <div class="insurer-identity"><div class="insurer-logo">C</div><h3>Chapka</h3><p>Travel insurance information</p><span>✓ External quote available</span></div>
+              <div class="insurer-info"><div class="insurer-pills"><span>Travel medical insurance</span><span>Policy terms apply</span></div><p>✓ Medical cover: <strong>See provider's plan and limits</strong></p><p>✓ Repatriation assistance: <strong>Check policy conditions</strong></p><p>✓ Other benefits: <strong>Vary by policy</strong></p><div class="insurer-note"><strong>Best for:</strong> Travellers who want to explore available Chapka plans.</div><div class="insurer-caution"><strong>Keep in mind:</strong> Residency eligibility, exact cover, exclusions and the final price must be confirmed with Chapka.</div></div>
+              <div class="insurer-pricing"><span class="estimate-label">ILLUSTRATIVE TOTAL</span><strong class="estimate-total" data-price="2.5">—</strong><span class="estimate-meta" data-meta="2.5"></span><span class="estimate-day">£2.50 / day per traveller (assumed)</span><p>Illustrative estimate, not a provider quote. Final price may differ.</p><a class="results-cta" href="https://www.chapkadirect.com/index.php?action=produit&amp;id=930&amp;app=ViajeroLATAM" target="_blank" rel="sponsored noopener noreferrer" data-track="click_affiliate_chapka">See live price at Chapka →</a><button class="details-toggle" type="button" aria-expanded="false">View compared details</button><div class="details-panel" hidden>Example calculation only: £2.50 per day × number of travel days × travellers. The provider determines live pricing, policy benefits and eligibility.</div></div>
+            </div>
+          </article>
+          <article class="insurer-card">
+            <div class="insurer-ribbon">INTERNATIONAL TRAVEL OPTION</div>
+            <div class="insurer-body">
+              <div class="insurer-identity"><div class="insurer-logo">iati</div><h3>IATI Global</h3><p>International travel insurance</p><span>✓ External quote available</span></div>
+              <div class="insurer-info"><div class="insurer-pills"><span>Travel medical insurance</span><span>Policy terms apply</span></div><p>✓ Medical cover: <strong>See provider's plan and limits</strong></p><p>✓ Repatriation assistance: <strong>Check policy conditions</strong></p><p>✓ Other benefits: <strong>Vary by policy</strong></p><div class="insurer-note"><strong>Best for:</strong> Travellers who want to compare international insurance cover.</div><div class="insurer-caution"><strong>Keep in mind:</strong> Residency eligibility, exact cover, exclusions and the final price must be confirmed with IATI Global.</div></div>
+              <div class="insurer-pricing"><span class="estimate-label">ILLUSTRATIVE TOTAL</span><strong class="estimate-total" data-price="2.8">—</strong><span class="estimate-meta" data-meta="2.8"></span><span class="estimate-day">£2.80 / day per traveller (assumed)</span><p>Illustrative estimate, not a provider quote. Final price may differ.</p><a class="results-cta" href="https://www.iatiglobal.com/en/?r=84208681926165" target="_blank" rel="sponsored noopener noreferrer" data-track="click_affiliate_iati">See live price at IATI Global →</a><button class="details-toggle" type="button" aria-expanded="false">View compared details</button><div class="details-panel" hidden>Example calculation only: £2.80 per day × number of travel days × travellers. The provider determines live pricing, policy benefits and eligibility.</div></div>
+            </div>
+          </article>
         </div>
-        <p class="results-disclosure">We may earn a commission from purchases through affiliate links, at no extra cost to you. These are provider links, not live insurance quotations. Prices in pounds sterling will only be shown when verified total trip quotes are available. A policy may not be suitable or available for UK residents.</p>
+        <p class="results-disclosure">We may earn a commission from purchases through affiliate links, at no extra cost to you. These are provider links, not live insurance quotations. Illustrative prices shown in pounds sterling use assumed daily rates of £2.50 (Chapka) and £2.80 (IATI); they are not verified insurer rates. A policy may not be suitable or available for UK residents.</p>
       </div>
     </section>
 
@@ -339,7 +340,10 @@
     .results-disclosure{font-size:12px;color:#667d89;line-height:1.6;margin:18px 0 0}
     @media(max-width:720px){.results-section{padding:38px 0}.results-header{align-items:flex-start;flex-direction:column}.results-table thead{display:none}.results-table,.results-table tbody,.results-table tr,.results-table td{display:block;width:100%}.results-table tr{padding:10px 0}.results-table td{padding:11px 18px;border:0}.results-table td:before{content:attr(data-label);display:block;font-size:10px;color:#718996;text-transform:uppercase;font-weight:800;letter-spacing:.07em;margin-bottom:5px}.results-cta{width:100%}}
   </style>
+<style>
+.insurer-results{display:grid;gap:18px}.insurer-card{background:#fff;border:2px solid #67c5a8;border-radius:19px;overflow:hidden;box-shadow:0 9px 28px rgba(16,42,67,.06)}.insurer-ribbon{background:#68c2a5;padding:10px 20px;font-size:12px;letter-spacing:.035em;font-weight:850;color:#102a43}.insurer-body{display:grid;grid-template-columns:160px minmax(0,1fr) 250px;gap:24px;padding:24px}.insurer-identity{text-align:center}.insurer-logo{width:78px;height:78px;border:1px solid #e7e8eb;background:#f7f8f9;border-radius:15px;margin:0 auto 8px;display:grid;place-items:center;font-size:33px;font-weight:900;color:#263048}.insurer-card:nth-child(2) .insurer-logo{color:#d98936;background:#fff6ec}.insurer-identity h3{margin:0;font-size:17px}.insurer-identity p{font-size:13px;color:#6a7e91}.insurer-identity>span{color:#307c65;font-size:12px;font-weight:700}.insurer-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.insurer-pills span{padding:6px 11px;border-radius:20px;background:#edf7f2;font-size:12px;font-weight:750;color:#30675b}.insurer-info>p{margin:9px 0;font-size:14px;color:#52677e}.insurer-info strong{color:#102a43}.insurer-note,.insurer-caution{padding:11px 12px;border-radius:10px;font-size:13px;margin-top:12px;color:#4e6b63;background:#f2f9f6}.insurer-caution{color:#77674d;background:#f8f6f0}.insurer-pricing{text-align:right;display:flex;flex-direction:column;align-items:stretch}.estimate-label{font-size:11px;color:#7c92a5;letter-spacing:.07em}.estimate-total{font-size:36px;line-height:1.18;color:#102a43;margin-top:7px}.estimate-meta,.estimate-day{font-size:12px;font-weight:700;color:#102a43;margin-top:7px}.insurer-pricing p{font-size:11px;color:#77879e;border-top:1px solid #e7eff1;margin:15px 0 12px;padding-top:12px}.details-toggle{margin-top:8px;padding:11px;background:#fff;border:1px solid #dfe8ec;border-radius:30px;font-weight:750;color:#526784;cursor:pointer}.details-panel{font-size:12px;text-align:left;background:#f6faf9;padding:12px;margin-top:8px;border-radius:10px}.details-panel[hidden]{display:none}@media(max-width:850px){.insurer-body{grid-template-columns:135px 1fr;gap:15px}.insurer-pricing{grid-column:1/-1;text-align:left}.insurer-pricing p{text-align:left}}@media(max-width:560px){.insurer-body{grid-template-columns:1fr;padding:18px}.insurer-identity{text-align:left;display:grid;grid-template-columns:74px 1fr;column-gap:12px;align-items:center}.insurer-logo{grid-row:span 3;margin:0;width:65px;height:65px}.insurer-identity p{margin:0}.insurer-info,.insurer-pricing{grid-column:1}.insurer-pricing{text-align:left}.insurer-pricing p{text-align:left}}
+</style>
   <script src="/assets/site.js?v=2"></script>
-  <script src="/assets/script.js?v=results-2"></script>
+  <script src="/assets/script.js?v=results-3"></script>
 </body>
 </html>
