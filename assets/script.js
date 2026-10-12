@@ -79,6 +79,18 @@ document.querySelector("#quote-form").addEventListener("submit",e=>{
   const fmt=s=>formatter.format(new Date(s+"T12:00:00Z"));
   document.querySelector("#results-summary").textContent=
     "United Kingdom → "+input.value.trim()+" · "+fmt(departure)+" – "+fmt(returnDate)+" · "+travellers+" · "+(tripType==="annual"?"Annual multi-trip":"Single trip");
+  const days=Math.round((Date.parse(returnDate+"T00:00:00Z")-Date.parse(departure+"T00:00:00Z"))/86400000)+1;
+  const travellerCount=parseInt(travellers,10)||1;
+  resultSection.querySelectorAll(".estimate-total").forEach(el=>{
+    const rate=Number(el.dataset.price);
+    el.textContent=tripType==="annual"?"Quote required":new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(days*travellerCount*rate);
+  });
+  resultSection.querySelectorAll(".estimate-meta").forEach(el=>{
+    el.textContent=tripType==="annual"?"Annual policy: daily calculation not applicable":("£"+Number(el.dataset.meta).toFixed(2)+" / day × "+days+" days × "+travellerCount+(travellers.includes("+")?"+":"")+" traveller"+(travellerCount===1?"":"s"));
+  });
+  resultSection.querySelectorAll(".estimate-day").forEach(el=>el.hidden=tripType==="annual");
   resultSection.hidden=false;
   resultSection.scrollIntoView({behavior:"smooth",block:"start"});
 });
+
+document.querySelectorAll(".details-toggle").forEach(button=>button.addEventListener("click",()=>{const panel=button.nextElementSibling;panel.hidden=!panel.hidden;button.setAttribute("aria-expanded",String(!panel.hidden));button.textContent=panel.hidden?"View compared details":"Hide compared details";}));
