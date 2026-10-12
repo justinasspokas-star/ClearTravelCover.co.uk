@@ -158,18 +158,7 @@
             </div>
           </form>
 
-          <div class="chapka-affiliate-offer" style="margin-top:18px;padding:18px;border:1px solid #dce6eb;border-radius:14px;background:#f6fafc;">
-            <p class="mini-label" style="margin:0 0 6px;">External insurance provider · Affiliate link</p>
-            <h3 style="margin:0 0 8px;font-size:1.15rem;">Explore Chapka travel insurance</h3>
-            <p style="margin:0 0 12px;">View Chapka's policy information and check whether cover is available for your country of residence, destination and travel dates. Eligibility, terms and exclusions are set by the provider.</p>
-            <a class="secondary-button" href="https://www.chapkadirect.com/index.php?action=produit&amp;id=930&amp;app=ViajeroLATAM" target="_blank" rel="sponsored noopener noreferrer">View Chapka cover <span aria-hidden="true">→</span></a>
-            <p style="font-size:.82rem;margin:10px 0 0;">We may earn a commission if you purchase through this link, at no additional cost to you. This is not a quote from Clear Travel Cover.</p>
-          </div>
-
-          <div id="form-message" class="form-message" role="status" hidden>
-            <strong>Comparison service launching soon.</strong>
-            <span>No quotes are currently displayed. Our service is being prepared with authorised UK partners.</span>
-          </div>
+          <div id="form-message" class="form-message" role="status" hidden></div>
         </div>
 
         <div class="trust-strip" aria-label="Clear Travel Cover principles">
@@ -180,6 +169,27 @@
         </div>
       </div>
       <div class="hero-curve" aria-hidden="true"></div>
+    </section>
+
+    <section class="results-section" id="comparison-results" hidden aria-live="polite">
+      <div class="container">
+        <div class="results-header">
+          <div><p class="eyebrow">Your travel insurance search</p><h2>Available provider options</h2><p id="results-summary"></p></div>
+          <button type="button" class="edit-search-button" id="edit-search">Edit search</button>
+        </div>
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <thead><tr><th scope="col">Provider</th><th scope="col">Policy details</th><th scope="col">Total price (GBP)</th><th scope="col">Next step</th></tr></thead>
+            <tbody><tr>
+              <td data-label="Provider"><strong>Chapka</strong><small>External provider · Affiliate partner</small></td>
+              <td data-label="Policy details"><strong>Explore Chapka travel cover</strong><small>Check UK residency eligibility, chosen destination, dates, exclusions and policy conditions directly with Chapka.</small></td>
+              <td data-label="Total price (GBP)"><strong>Quote required</strong><small>£ total unavailable — no live pricing connection</small></td>
+              <td data-label="Next step"><a class="results-cta" href="https://www.chapkadirect.com/index.php?action=produit&amp;id=930&amp;app=ViajeroLATAM" target="_blank" rel="sponsored noopener noreferrer" data-track="click_affiliate_chapka">View policy <span aria-hidden="true">↗</span></a></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <p class="results-disclosure">We may earn a commission from purchases through affiliate links, at no extra cost to you. These are provider links, not live insurance quotations. Prices in pounds sterling will only be shown when verified total trip quotes are available. A policy may not be suitable or available for UK residents.</p>
+      </div>
     </section>
 
     <section class="section compare-section" id="what-to-compare">
@@ -303,7 +313,27 @@
     </div>
   </div>
 
+
+  <style>
+    .results-section{padding:60px 0 75px;background:#f1f8f8}
+    .results-section[hidden]{display:none}
+    .results-header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}
+    .results-header h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,3vw,40px);font-weight:500;margin:0;color:#102a43}
+    #results-summary{color:#526b7b;margin:8px 0 0}
+    .edit-search-button{border:1px solid #b5d8d7;color:#116e6b;background:#fff;border-radius:10px;padding:12px 18px;cursor:pointer;font-weight:700}
+    .results-table-wrap{background:white;border:1px solid #dce7e9;border-radius:17px;overflow:hidden;box-shadow:0 14px 35px #102a4310}
+    .results-table{width:100%;border-collapse:collapse;text-align:left}
+    .results-table th{padding:15px 20px;background:#102a43;color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+    .results-table td{padding:23px 20px;vertical-align:middle;border-bottom:1px solid #edf2f4}
+    .results-table td strong,.results-table td small{display:block}
+    .results-table td strong{font-size:16px;color:#102a43}
+    .results-table td small{font-size:12px;color:#6a7f8d;line-height:1.5;margin-top:5px}
+    .results-cta{background:#138b86;color:white;display:inline-flex;gap:9px;align-items:center;justify-content:center;text-decoration:none;padding:12px 17px;border-radius:10px;font-weight:800;white-space:nowrap}
+    .results-cta:hover{background:#0f7772}
+    .results-disclosure{font-size:12px;color:#667d89;line-height:1.6;margin:18px 0 0}
+    @media(max-width:720px){.results-section{padding:38px 0}.results-header{align-items:flex-start;flex-direction:column}.results-table thead{display:none}.results-table,.results-table tbody,.results-table tr,.results-table td{display:block;width:100%}.results-table tr{padding:10px 0}.results-table td{padding:11px 18px;border:0}.results-table td:before{content:attr(data-label);display:block;font-size:10px;color:#718996;text-transform:uppercase;font-weight:800;letter-spacing:.07em;margin-bottom:5px}.results-cta{width:100%}}
+  </style>
   <script src="/assets/site.js?v=2"></script>
-  <script src="/assets/script.js?v=seo-1"></script>
+  <script src="/assets/script.js?v=results-2"></script>
 </body>
 </html>
