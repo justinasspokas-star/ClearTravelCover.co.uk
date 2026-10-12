@@ -52,17 +52,33 @@ document.querySelectorAll('input[name="trip-type"]').forEach(radio=>{
   });
 });
 
+const resultSection=document.querySelector("#comparison-results");
+document.querySelector("#edit-search")?.addEventListener("click",()=>{
+  document.querySelector("#compare").scrollIntoView({behavior:"smooth",block:"start"});
+  input.focus({preventScroll:true});
+});
 document.querySelector("#quote-form").addEventListener("submit",e=>{
   e.preventDefault();
   const valid=destinations.some(d=>d.toLowerCase()===input.value.trim().toLowerCase());
   if(!valid){error.textContent="Please select a valid destination.";input.focus();updateList();return}
   error.textContent="";
-  trackAnalyticsEvent("quote_submit",{
-    trip_type:document.querySelector('input[name="trip-type"]:checked')?.value||"single",
-    destination:input.value.trim(),
-    travellers:document.querySelector("#travellers")?.value||""
-  });
+  const departure=document.querySelector("#departure").value;
+  const returnDate=document.querySelector("#return-date").value;
   const message=document.querySelector("#form-message");
-  message.hidden=false;
-  message.scrollIntoView({behavior:"smooth",block:"nearest"});
+  if(!departure||!returnDate||departure<today||returnDate<departure){
+    message.hidden=false;
+    message.textContent="Please choose valid departure and return dates.";
+    message.scrollIntoView({behavior:"smooth",block:"nearest"});
+    return;
+  }
+  message.hidden=true;
+  const tripType=document.querySelector('input[name="trip-type"]:checked')?.value||"single";
+  const travellers=document.querySelector("#travellers")?.value||"1 traveller";
+  trackAnalyticsEvent("quote_submit",{trip_type:tripType,destination:input.value.trim(),travellers});
+  const formatter=new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"});
+  const fmt=s=>formatter.format(new Date(s+"T12:00:00Z"));
+  document.querySelector("#results-summary").textContent=
+    "United Kingdom → "+input.value.trim()+" · "+fmt(departure)+" – "+fmt(returnDate)+" · "+travellers+" · "+(tripType==="annual"?"Annual multi-trip":"Single trip");
+  resultSection.hidden=false;
+  resultSection.scrollIntoView({behavior:"smooth",block:"start"});
 });
